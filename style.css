@@ -197,7 +197,6 @@ h5 {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 2vw;
   font-weight: bold;
-  line-height: auto;
 }
 h6 {
   font-family: lust-didone, serif;
@@ -477,7 +476,7 @@ html {
 }
 
 .section1 {
-  background-image: url("images/pillows-pg.png");
+  background-image: url("images/pillows-pg.jpg");
   background-size: 100% 100%;
 }
 
