@@ -579,3 +579,12 @@ sup {
   opacity: 80%;
   border: 2px solid black;
 }
+
+.color-options {
+  max-width: 90px;
+}
+
+.select-color {
+  display: flex;
+  flex-direction: row;
+}
