@@ -1,11 +1,13 @@
 var nItems = 0;
 
+// if item added to cart, nItems += 1
 document.getElementById("addtocart").onclick = function addItem() {
   nItems = nItems + 1;
   document.getElementById("cartitems").innerHTML = nItems;
   //document.getElementById("popup").style.display = "block";
 };
 
+// change background if color option is clicked.
 function changeBackground(image) {
   document.getElementById("floor-pouf").style.backgroundImage = image;
   console.log("image changed");
