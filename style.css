@@ -222,7 +222,7 @@ p {
 /* strong can be used in place of "bold" and em can be used in place of "italic" */
 
 p strong {
-  font-weight: 500;
+  font-weight: bold;
   /* text-transform: uppercase; */
 }
 
@@ -592,6 +592,94 @@ sup {
 }
 
 .cart-section {
-  margin: 0px 20%;
+  margin: 0px 15%;
   background-color: white;
+  min-height: 100vh;
 }
+
+/* CART GRID */
+
+.container-cart {
+  display: grid;
+  grid-template-columns: [col1] 16% [col2]32% [col3] 16%[col4] 16% [col5];
+  grid-template-rows:
+    [row1-start]
+    10vh [row1-end row2-start] 15vh [row2-end];
+  grid-column-gap: 15px;
+  margin: 5px 50px;
+  border-top: 1px solid black;
+}
+.container-cart > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-item {
+  grid-column-start: col1;
+  grid-column-end: col2;
+  grid-row-start: row1-start;
+  grid-row-end: row2-end;
+}
+.cart-item-description {
+  grid-column-start: col2;
+  grid-column-end: col3;
+  grid-row-start: row1-start;
+  grid-row-end: row2-end;
+}
+.cart-item-price {
+  grid-column-start: col3;
+  grid-column-end: col4;
+  grid-row-start: row1-start;
+  grid-row-end: row2-end;
+}
+
+.cart-item-quantity {
+  grid-column-start: col4;
+  grid-column-end: col5;
+  grid-row-start: row1-start;
+  grid-row-end: row2-end;
+}
+.cart-item-total {
+  grid-column-start: col5;
+  grid-column-end: col6;
+  grid-row-start: row1-start;
+  grid-row-end: row2-end;
+}
+
+.cart-details {
+  grid-column-start: col4;
+  grid-column-end: col6;
+  grid-row-start: row1-start;
+  grid-row-end: row1-end;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 10px;
+}
+.cart-details2 {
+  grid-column-start: col4;
+  grid-column-end: col6;
+  grid-row-start: row2-start;
+  grid-row-end: row2-start;
+  background-color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-top: 20px;
+}
+
+.container-cart-labels {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 10px;
+  padding: 50px 50px 0px 50px;
+}
+
+.child {
+  width: 50%;
+}
+
+/* END OF CART GRID */

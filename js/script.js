@@ -3,7 +3,7 @@ var nItems = 0;
 document.getElementById("addtocart").onclick = function addItem() {
   nItems = nItems + 1;
   document.getElementById("cartitems").innerHTML = nItems;
-  document.getElementById("popup").style.display = "block";
+  //document.getElementById("popup").style.display = "block";
 };
 
 function changeBackground(image) {
