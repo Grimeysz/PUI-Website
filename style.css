@@ -428,8 +428,10 @@ main,
   padding: 0px;
 }
 
-.navbar img {
+#nav-rightside {
   margin: auto 10px auto auto;
+  display: flex;
+  flex-direction: row;
 }
 
 .navbar {
@@ -587,4 +589,9 @@ sup {
 .select-color {
   display: flex;
   flex-direction: row;
+}
+
+.cart-section {
+  margin: 0px 20%;
+  background-color: white;
 }

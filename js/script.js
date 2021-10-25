@@ -4,11 +4,6 @@ document.getElementById("addtocart").onclick = function addItem() {
   nItems = nItems + 1;
   document.getElementById("cartitems").innerHTML = nItems;
   document.getElementById("popup").style.display = "block";
-  setTimeout(() => {
-    function x() {
-      document.getElementById("popup").style.display = "hidden";
-    }
-  }, 1000);
 };
 
 function changeBackground(image) {
