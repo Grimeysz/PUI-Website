@@ -2,7 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-
+/* CSS RESET */
 html,
 body,
 div,
@@ -127,7 +127,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
+/* END OF CSS RESET */
 /* START OF CUSTOM CSS */
 
 b {
@@ -272,6 +272,7 @@ main,
     [row1-start]
     30vh [row1-end];
 }
+
 /* building CSS Grid */
 
 .footer-1 {
@@ -414,8 +415,6 @@ main,
 
 /* Nav Bar */
 
-/* Style the header */
-
 #sitelogo {
   padding: 5px;
 }
@@ -475,6 +474,8 @@ html {
   background-size: cover;
 }
 
+/* SECTION BACKGROUND IMAGES */
+
 .section1 {
   background-image: url("images/pillows-pg.jpg");
   background-size: 100% 100%;
@@ -489,13 +490,15 @@ html {
   background-size: 100% 100%;
 }
 
-.section2 {
+#floor-pouf {
   background-image: url("images/floor-pouf-1.png");
   background-size: 50%;
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-color: white;
 }
+
+/* ETC ETC */
 
 .shop-main {
   margin-top: 100px;
@@ -553,4 +556,26 @@ sup {
 
 .active {
   font-weight: bold;
+}
+
+#cartitems {
+  color: #f2f2f2;
+  text-align: center;
+  margin: auto 10px;
+  text-decoration: none;
+}
+
+#popup {
+  display: none;
+  position: fixed; /* Stay in place */
+  padding: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20%; /* Full width */
+  height: 20%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: white;
+  opacity: 80%;
+  border: 2px solid black;
 }

@@ -7,8 +7,9 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
     <title>PUI Website</title>
   </head>
-
+  <! STICKY NAV !>
   <body>
+    
       <div class="navbar" id="mynavbar">
           <div>
             <a href="index.html">  
@@ -18,17 +19,30 @@
             <a href="shop.html">Shop</a>
             <a href="contact.asp">Sale</a>
             <a href="about.asp">About</a> 
-            <img src="images/store-icons.png" height=35 alt="store icons"/>  
+            <img src="images/store-icons.png" height=35 alt="store icons"/> 
+            <h4 id="cartitems">0</h4>
           </div>
-    <section class="section2">
+          
+    <section id="floor-pouf" class="section2">
+        <div id="popup">
+            <h4>Item Added to Cart. Thank you!</h4>
+          </div>
       <div class="container">
+        
         <div class="product">
           <h2>Floor Pouf<sup>$20.99</sup></h2>
           <p>Sturdy and stylish, the perfect addition to your living space.</p>
       </div>
       <div class="product-customize">
         <h4>SELECT COLOR</h4>
-        <img src="images/color-selections.jpg" width="100%" alt="colors">
+        <div class="select-color">
+          <img class="color-options" src="shop-items/color1.png" alt="after school special"/>
+          <img class="color-options" src="shop-items/color2.png" alt="after school special"/>
+          <img class="color-options" src="shop-items/color3.png" alt="after school special"/>
+          <img class="color-options" src="shop-items/color4.png" alt="after school special"/>
+          
+        </div>
+    
         <h4>SELECT FILLING</h4>
         <div class="select">
         <select name="filling" id="filling">
@@ -38,7 +52,7 @@
           </select>
         </div>
         <div class="select">
-        <a href="#" class="button">ADD TO CART</a>
+        <a id=addtocart href="#" class="button">ADD TO CART</a>
         </div>
         </div>
       </div>
@@ -53,6 +67,7 @@
             </div>
       </div>
     </section>
+    
     <div class="footer">
         <div class="footer-1">
           <img src="images/site-logo-footer.png" height=80% />
@@ -87,4 +102,5 @@
               </div>
         </div>
       </div>
+      <script type="text/javascript" src="js/script.js"></script>
 </html>
