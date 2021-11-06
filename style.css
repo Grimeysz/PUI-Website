@@ -545,6 +545,17 @@ sup {
   font-size: 16px;
 }
 
+.add-to-cart {
+  background-color: black; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
 .subscribe {
   background-color: black; /* Green */
   border: 1px solid white;
@@ -627,14 +638,14 @@ sup {
   grid-row-start: row1-start;
   grid-row-end: row2-end;
 }
-.cart-item-price {
+.item-price-container {
   grid-column-start: col3;
   grid-column-end: col4;
   grid-row-start: row1-start;
   grid-row-end: row2-end;
 }
 
-.cart-item-quantity {
+.item-quantity-container {
   grid-column-start: col4;
   grid-column-end: col5;
   grid-row-start: row1-start;
@@ -645,18 +656,24 @@ sup {
   grid-column-end: col6;
   grid-row-start: row1-start;
   grid-row-end: row2-end;
+  display: flex;
+  flex-direction: column;
+}
+.container-cart-details {
+  padding-right: 5vh;
 }
 
 .cart-details {
+  /*overall cart details */
   grid-column-start: col4;
   grid-column-end: col6;
   grid-row-start: row1-start;
   grid-row-end: row1-end;
   background-color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 10vw;
   align-items: flex-start;
-  padding-top: 10px;
 }
 .cart-details2 {
   grid-column-start: col4;
@@ -682,4 +699,15 @@ sup {
   width: 50%;
 }
 
+.remove-item {
+  font-size: 0.75rem;
+}
+
+/* styling the quantity input box */
+
+.input-text {
+  background-color: red;
+  width: 3vh;
+  height: 2rem;
+}
 /* END OF CART GRID */

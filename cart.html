@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <title>PUI Website</title>
+    <script src="js/script.js" async></script>
   </head>
-  <body>
+  <body onload="onLoad()">
     
       <! STICKY NAV !>
       <div class="navbar" id="mynavbar">
@@ -41,7 +42,7 @@
      
      </div>
 
-
+<div class="container-cart-parent" >
            <div class="container-cart">
         <div class="cart-item">
           <img src="shop-items/floor-pouf.jpg" width=100% />
@@ -56,22 +57,24 @@
         </p>
 
         </div>
-        <div class="cart-item-price">
+        <div class="item-price-container">
             
-          <p>
+          <p class="item-price">
               $20.99
           </p>
+         
        
         </div>
-        <div class="cart-item-quantity">
+        <div class="item-quantity-container">
 
-          <p>1</p>
+          <input type="number" class="item-quantity" name="item-quantity"
+       min="1" max="100" value="1">
           </div>
 
           <div class="cart-item-total">
 
             <p>$20.99</p>
-
+            <button class="remove-item">Remove Item</button>
           </div>
       </div>  
       <div class="container-cart">
@@ -88,33 +91,37 @@
           </p>
   
           </div>
-          <div class="cart-item-price">
+          <div class="item-price-container">
               
-            <p>
-                $20.99
+            <p class="item-price">
+                $45.99
             </p>
          
           </div>
-          <div class="cart-item-quantity">
+          <div class="item-quantity-container">
   
-            <p>1</p>
+            <input type="number" class="item-quantity" name="item-quantity"
+            min="1" max="100" value="1">
+            
             </div>
   
             <div class="cart-item-total">
   
-              <p>$20.99</p>
-  
+              <p>$45.99</p>
+              <button class="remove-item">Remove Item</button>
             </div>
         </div> 
-        <div class="container-cart">
+</div>
+
+        <div class="container-cart-details">
     
             <div class="cart-details">
               <div><p><strong>Subtotal</br>
               Shipping</br>
             TOTAL (USD)</strong></p></div>
-              <div><p>$56.99</br>
-              FREE</br>
-            $56.99</p>   
+              <div><p id="cart-total">$56.99</br></p>
+              <p id= "shipping">FREE</br></p>
+            <p id="cart-total-with-shipping">$56.99</p>   
               </div>
                
             </div>
@@ -164,5 +171,5 @@
               </div>
         </div>
       </div>
-      <script type="text/javascript" src="js/script.js"></script>
+      
 </html>
