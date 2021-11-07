@@ -4,33 +4,33 @@ if (document.readyState === "loading") {
   ready();
 }
 
-// change background if color option is clicked.
-function changeBackground(image) {
-  document.getElementById("floor-pouf").style.backgroundImage = image;
-  console.log("image changed");
-}
-const a = document.getElementsByClassName("color-options");
-
-a[0].onclick = function x() {
-  changeBackground("url(shop-items/floor-pouf4.jpg)");
-};
-
-a[1].onclick = function x() {
-  changeBackground("url(shop-items/floor-pouf2.jpg)");
-};
-
-a[2].onclick = function x() {
-  changeBackground("url(shop-items/floor-pouf3.jpg)");
-};
-
-a[3].onclick = function x() {
-  changeBackground("url(shop-items/floor-pouf.jpg)");
-};
-
 //global variables
 var nItems = document.getElementById("cartitems");
 //event listeners
 function ready() {
+  // change background if color option is clicked.
+  function changeBackground(image) {
+    document.getElementById("floor-pouf").style.backgroundImage = image;
+    console.log("image changed");
+  }
+  const a = document.getElementsByClassName("color-options");
+
+  a[0].onclick = function x() {
+    changeBackground("url(shop-items/floor-pouf4.jpg)");
+  };
+
+  a[1].onclick = function x() {
+    changeBackground("url(shop-items/floor-pouf2.jpg)");
+  };
+
+  a[2].onclick = function x() {
+    changeBackground("url(shop-items/floor-pouf3.jpg)");
+  };
+
+  a[3].onclick = function x() {
+    changeBackground("url(shop-items/floor-pouf.jpg)");
+  };
+
   var addToCartButtons = document.getElementsByClassName("add-to-cart");
   for (var i = 0; i < addToCartButtons.length; i++) {
     var button = addToCartButtons[i];
@@ -47,31 +47,31 @@ function addToCartClicked(event) {
   var price = document.getElementsByClassName("shop-item-price")[0].innerText;
   var item = document.getElementById("floor-pouf");
   var style = window.getComputedStyle(item, false);
-  var imageSrc = style.backgroundImage.slice(4, -1).replace(/"/g, "");
+  var imageSrc = style.backgroundImage.slice(27, -2);
+  console.log(imageSrc);
+
   //get filling type
   var x = document.getElementById("filling");
   var filling = x.options[x.selectedIndex].text;
   var color = "rainy day";
   //get color type from checking background image
-  if (imageSrc === "https://3kxy4.csb.app/shop-items/floor-pouf3.jpg") {
-    color = "Eainy day";
-  } else if (imageSrc === "https://3kxy4.csb.app/shop-items/floor-pouf2.jpg") {
+  if (imageSrc === "shop-items/floor-pouf3.jpg") {
+    color = "Rainy day";
+  } else if (imageSrc === "shop-items/floor-pouf2.jpg") {
     color = "Cozy denim";
-  } else if (imageSrc === "https://3kxy4.csb.app/shop-items/floor-pouf4.jpg") {
+  } else if (imageSrc === "shop-items/floor-pouf4.jpg") {
     color = "After school Special";
-  } else if (imageSrc === "https://3kxy4.csb.app/shop-items/floor-pouf.jpg") {
+  } else if (imageSrc === "shop-items/floor-pouf.jpg") {
     color = "Morning haze";
   } else {
     color = "unknown";
   }
 
-  console.log(imageSrc);
   addItemToCart(title, price, imageSrc, filling, color);
 }
 
 function addItemToCart(title, price, imageSrc, filling, color) {
   var cartRow = document.createElement("div");
-  var carttems = document.getElementById("floor-pouf");
   cartRow.classList.add("cart-row");
   var cartRowContents = `<div class="container-cart">
   <div class="cart-item">
