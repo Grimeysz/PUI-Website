@@ -651,7 +651,7 @@ sup {
   grid-row-start: row1-start;
   grid-row-end: row2-end;
 }
-.cart-item-total {
+.cart-item-total-parent {
   grid-column-start: col5;
   grid-column-end: col6;
   grid-row-start: row1-start;
@@ -661,6 +661,7 @@ sup {
 }
 .container-cart-details {
   padding-right: 5vh;
+  padding-bottom: 5vh;
 }
 
 .cart-details {
