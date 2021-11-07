@@ -23,7 +23,15 @@
       <a id="nav-rightside" href="cart.html">
         <img src="images/store-icons.png" height="35px" />
 
-        <h4 id="cartitems">0</h4>
+        <h4 id="cartitems">
+          <script>
+            var cartitems = JSON.parse(localStorage.getItem("cart"));
+            var nItems = carItems.length;
+            document.getElementById("cartitems").innerText = JSON.stringify(
+              nItems
+            );
+          </script>
+        </h4>
       </a>
     </div>
 

@@ -28,25 +28,9 @@ a[3].onclick = function x() {
 };
 
 //global variables
-var nItems = 2;
-
+var nItems = document.getElementById("cartitems");
 //event listeners
 function ready() {
-  // var removecartitems = document.getElementsByClassName("remove-item");
-  // //remove items from cart when clicked
-  // for (var i = 0; i < removecartitems.length; i++) {
-  //   var x = removecartitems[i];
-  //   x.addEventListener("click", function removeitem() {
-  //     console.log("clicked");
-  //     var buttonclicked = event.target;
-  //     buttonclicked.parentElement.parentElement.remove();
-
-  //     updateCartTotal();
-  //     //update cart total
-  //   });
-  // }
-  //update cart total when item quantity changed.
-
   var addToCartButtons = document.getElementsByClassName("add-to-cart");
   for (var i = 0; i < addToCartButtons.length; i++) {
     var button = addToCartButtons[i];
@@ -56,6 +40,7 @@ function ready() {
 //END OF EVENT LISTENERS
 
 function addToCartClicked(event) {
+  nItems += 1;
   var button = event.target;
   //typically this would be the parent element of the button
   var title = document.getElementsByClassName("shop-item-title")[0].innerText;
@@ -63,13 +48,28 @@ function addToCartClicked(event) {
   var item = document.getElementById("floor-pouf");
   var style = window.getComputedStyle(item, false);
   var imageSrc = style.backgroundImage.slice(4, -1).replace(/"/g, "");
+  //get filling type
   var x = document.getElementById("filling");
   var filling = x.options[x.selectedIndex].text;
-  console.log(title, price, "src", imageSrc, "src");
-  addItemToCart(title, price, imageSrc);
+  var color = "rainy day";
+  //get color type from checking background image
+  if (imageSrc === "https://3kxy4.csb.app/shop-items/floor-pouf3.jpg") {
+    color = "Eainy day";
+  } else if (imageSrc === "https://3kxy4.csb.app/shop-items/floor-pouf2.jpg") {
+    color = "Cozy denim";
+  } else if (imageSrc === "https://3kxy4.csb.app/shop-items/floor-pouf4.jpg") {
+    color = "After school Special";
+  } else if (imageSrc === "https://3kxy4.csb.app/shop-items/floor-pouf.jpg") {
+    color = "Morning haze";
+  } else {
+    color = "unknown";
+  }
+
+  console.log(imageSrc);
+  addItemToCart(title, price, imageSrc, filling, color);
 }
 
-function addItemToCart(title, price, imageSrc) {
+function addItemToCart(title, price, imageSrc, filling, color) {
   var cartRow = document.createElement("div");
   var carttems = document.getElementById("floor-pouf");
   cartRow.classList.add("cart-row");
@@ -81,7 +81,7 @@ function addItemToCart(title, price, imageSrc) {
 
   <p><strong>Floor Pouf Pillow</strong></br>
 
-      <strong>Color:</strong> Cozy Denim</br>
+      <strong>Color:</strong>${color}</br>
       
       <strong>Filling:</strong> ${filling}
   </p>
@@ -107,13 +107,7 @@ function addItemToCart(title, price, imageSrc) {
       <button class="remove-item">Remove Item</button>
     </div>
 </div>`;
-
-  //add the item to local storage
-  // var newItem = {
-  //   title: title,
-  //   price: price,
-  //   image: imageSrc
-  // };
+  //add this item to local storage.
   var cart = JSON.parse(localStorage.getItem("cart"));
   if (cart === null) {
     cart = [];
@@ -123,6 +117,10 @@ function addItemToCart(title, price, imageSrc) {
   }
   localStorage.setItem("cart", JSON.stringify(cart));
   console.log(cart);
+
+  var cartitems = JSON.parse(localStorage.getItem("cart"));
+  var nItems = cartitems.length;
+  document.getElementById("cartitems").innerText = JSON.stringify(nItems);
 }
 
 //update cart total function calculates total cost of items in your cart.
@@ -144,6 +142,9 @@ function updateCartTotal() {
   total = Math.round(total * 100) / 100;
   document.getElementById("cart-total").innerText = "$" + total;
   document.getElementById("cart-total-with-shipping").innerText = "$" + total;
+  document.getElementById("cartitems").innerText = JSON.stringify(
+    cartRows.length
+  );
 }
 
 function quantityChanged(event) {
@@ -154,9 +155,9 @@ function quantityChanged(event) {
   updateCartTotal();
 }
 
-//a function that adds cart items to cart page.
+//event listeners that happen on load
 function onLoad() {
-  document.getElementById("cartitems").innerText = nItems;
+  //a function that adds cart items to cart page.
   var cart = JSON.parse(localStorage.getItem("cart"));
   var cartItems = document.getElementsByClassName("container-cart-parent")[0];
   for (var i = 0; i < cart.length; i++) {
@@ -167,17 +168,21 @@ function onLoad() {
   var removecartitems = document.getElementsByClassName("remove-item");
 
   //remove items from cart when clicked
-  for (var i = 0; i < removecartitems.length; i++) {
-    var x = removecartitems[i];
+  for (var a = 0; a < removecartitems.length; a++) {
+    var x = removecartitems[a];
     x.addEventListener("click", function removeitem() {
-      //remove that item from local storage
       console.log("clicked");
       //remove item from cart
       var buttonclicked = event.target;
       buttonclicked.parentElement.parentElement.remove();
+      //remove that item from local storage
+      cart.splice(a - 1, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      console.log(a);
+      nItems = nItems - 1;
 
-      updateCartTotal();
       //update cart total
+      updateCartTotal();
     });
   }
 
@@ -186,5 +191,6 @@ function onLoad() {
     var input = quantityInputs[i];
     input.addEventListener("change", quantityChanged);
   }
+  document.getElementById("cartitems").innerText = JSON.stringify(nItems);
   updateCartTotal();
 }
