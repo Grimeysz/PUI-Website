@@ -48,6 +48,8 @@ function addToCartClicked(event) {
   var item = document.getElementById("floor-pouf");
   var style = window.getComputedStyle(item, false);
   var imageSrc = style.backgroundImage.slice(27, -2);
+  var quantity = document.getElementsByClassName("select-item-quantity")[0]
+    .value;
   console.log(imageSrc);
 
   //get filling type
@@ -67,10 +69,10 @@ function addToCartClicked(event) {
     color = "unknown";
   }
 
-  addItemToCart(title, price, imageSrc, filling, color);
+  addItemToCart(title, price, imageSrc, filling, color, quantity);
 }
 
-function addItemToCart(title, price, imageSrc, filling, color) {
+function addItemToCart(title, price, imageSrc, filling, color, quantity) {
   var cartRow = document.createElement("div");
   cartRow.classList.add("cart-row");
   var cartRowContents = `<div class="container-cart">
@@ -97,7 +99,7 @@ function addItemToCart(title, price, imageSrc, filling, color) {
   <div class="item-quantity-container">
 
     <input type="number" class="item-quantity" name="item-quantity"
-    min="1" max="100" value="1">
+    min="1" max="100" value="${quantity}">
     
     </div>
 
