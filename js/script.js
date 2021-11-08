@@ -50,7 +50,6 @@ function addToCartClicked(event) {
   var temp = style.backgroundImage.split("/");
   temp.splice(0, 3);
   var imageSrc = temp.join("/");
-  imageSrc = imageSrc.slice(0, -2);
   console.log(imageSrc);
 
   var quantity = document.getElementsByClassName("select-item-quantity")[0]
@@ -61,13 +60,13 @@ function addToCartClicked(event) {
   var filling = x.options[x.selectedIndex].text;
   var color = "rainy day";
   //get color type from checking background image
-  if (imageSrc === "PUI-Website/shop-items/floor-pouf3.jpg") {
+  if (imageSrc === "shop-items/floor-pouf3.jpg") {
     color = "Rainy day";
-  } else if (imageSrc === "PUI-Website/shop-items/floor-pouf2.jpg") {
+  } else if (imageSrc === "shop-items/floor-pouf2.jpg") {
     color = "Cozy denim";
-  } else if (imageSrc === "PUI-Website/shop-items/floor-pouf4.jpg") {
+  } else if (imageSrc === "shop-items/floor-pouf4.jpg") {
     color = "After school Special";
-  } else if (imageSrc === "PUI-Website/shop-items/floor-pouf.jpg") {
+  } else if (imageSrc === "shop-items/floor-pouf.jpg") {
     color = "Morning haze";
   } else {
     color = "unknown";
