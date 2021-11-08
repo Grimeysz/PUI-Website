@@ -60,13 +60,13 @@ function addToCartClicked(event) {
   var filling = x.options[x.selectedIndex].text;
   var color = "rainy day";
   //get color type from checking background image
-  if (imageSrc === "shop-items/floor-pouf3.jpg") {
+  if (imageSrc === "PUI-Website/shop-items/floor-pouf3.jpg") {
     color = "Rainy day";
-  } else if (imageSrc === "shop-items/floor-pouf2.jpg") {
+  } else if (imageSrc === "PUI-Website/shop-items/floor-pouf2.jpg") {
     color = "Cozy denim";
-  } else if (imageSrc === "shop-items/floor-pouf4.jpg") {
+  } else if (imageSrc === "PUI-Website/shop-items/floor-pouf4.jpg") {
     color = "After school Special";
-  } else if (imageSrc === "shop-items/floor-pouf.jpg") {
+  } else if (imageSrc === "PUI-Website/shop-items/floor-pouf.jpg") {
     color = "Morning haze";
   } else {
     color = "unknown";
