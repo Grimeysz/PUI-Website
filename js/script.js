@@ -47,10 +47,14 @@ function addToCartClicked(event) {
   var price = document.getElementsByClassName("shop-item-price")[0].innerText;
   var item = document.getElementById("floor-pouf");
   var style = window.getComputedStyle(item, false);
-  var imageSrc = style.backgroundImage.slice(27, -2);
+  var temp = style.backgroundImage.split("/");
+  temp.splice(0, 3);
+  var imageSrc = temp.join("/");
+  imageSrc = imageSrc.slice(0, -2);
+  console.log(imageSrc);
+
   var quantity = document.getElementsByClassName("select-item-quantity")[0]
     .value;
-  console.log(imageSrc);
 
   //get filling type
   var x = document.getElementById("filling");
