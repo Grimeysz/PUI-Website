@@ -50,7 +50,6 @@ function addToCartClicked(event) {
   var imageSrc = style.backgroundImage;
   //temp.splice(0, 3);
   //var imageSrc = temp.join("/");
-  console.log(imageSrc);
 
   var quantity = document.getElementsByClassName("select-item-quantity")[0]
     .value;
@@ -84,7 +83,10 @@ function addToCartClicked(event) {
     color = "unknown";
   }
 
-  addItemToCart(title, price, imageSrc, filling, color, quantity);
+  var imageSrcEdit = imageSrc.slice(11, 39);
+  addItemToCart(title, price, imageSrcEdit, filling, color, quantity);
+  console.log(imageSrc);
+  console.log(imageSrcEdit);
 }
 
 function addItemToCart(title, price, imageSrc, filling, color, quantity) {
