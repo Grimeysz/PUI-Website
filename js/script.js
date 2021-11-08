@@ -47,9 +47,13 @@ function addToCartClicked(event) {
   var price = document.getElementsByClassName("shop-item-price")[0].innerText;
   var item = document.getElementById("floor-pouf");
   var style = window.getComputedStyle(item, false);
-  var imageSrc = style.backgroundImage;
-  //temp.splice(0, 3);
-  //var imageSrc = temp.join("/");
+  var temp = style.backgroundImage;
+  temp = temp.split("/");
+  temp = temp.splice(3, 2);
+  temp = temp.join("/");
+
+  console.log(temp);
+  var imageSrc = temp.slice(0, -2);
 
   var quantity = document.getElementsByClassName("select-item-quantity")[0]
     .value;
@@ -59,34 +63,20 @@ function addToCartClicked(event) {
   var filling = x.options[x.selectedIndex].text;
   var color = "rainy day";
   //get color type from checking background image
-  if (
-    imageSrc ===
-    "https://grimeysz.github.io/PUI-Website/PUI-Website/shop-items/floor-pouf3.jpg"
-  ) {
+  if (imageSrc === "shop-items/floor-pouf3.jpg") {
     color = "Rainy day";
-  } else if (
-    imageSrc ===
-    "https://grimeysz.github.io/PUI-Website/PUI-Website/shop-items/floor-pouf2.jpg"
-  ) {
+  } else if (imageSrc === "shop-items/floor-pouf2.jpg") {
     color = "Cozy denim";
-  } else if (
-    imageSrc ===
-    "https://grimeysz.github.io/PUI-Website/PUI-Website/shop-items/floor-pouf4.jpg"
-  ) {
+  } else if (imageSrc === "shop-items/floor-pouf4.jpg") {
     color = "After school Special";
-  } else if (
-    imageSrc ===
-    "https://grimeysz.github.io/PUI-Website/PUI-Website/shop-items/floor-pouf.jpg"
-  ) {
+  } else if (imageSrc === "shop-items/floor-pouf.jpg") {
     color = "Morning haze";
   } else {
     color = "unknown";
   }
 
-  var imageSrcEdit = imageSrc.slice(11, 39);
-  addItemToCart(title, price, imageSrcEdit, filling, color, quantity);
+  addItemToCart(title, price, imageSrc, filling, color, quantity);
   console.log(imageSrc);
-  console.log(imageSrcEdit);
 }
 
 function addItemToCart(title, price, imageSrc, filling, color, quantity) {
@@ -94,7 +84,7 @@ function addItemToCart(title, price, imageSrc, filling, color, quantity) {
   cartRow.classList.add("cart-row");
   var cartRowContents = `<div class="container-cart">
   <div class="cart-item">
-    <img src="shop-items/floor-pouf.jpg" width=100% />
+    <img src="${imageSrc}" width=100% />
 </div>
 <div class="cart-item-description">
 
