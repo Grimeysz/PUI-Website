@@ -48,7 +48,7 @@ function addToCartClicked(event) {
   var item = document.getElementById("floor-pouf");
   var style = window.getComputedStyle(item, false);
   var temp = style.backgroundImage.split("/");
-  temp.splice(0, 3);
+  temp.splice(0, 4);
   var imageSrc = temp.join("/");
   imageSrc = imageSrc.slice(0, -2);
   console.log(imageSrc);
