@@ -94,7 +94,7 @@ function addItemToCart(title, price, imageSrc, filling, color, quantity) {
   cartRow.classList.add("cart-row");
   var cartRowContents = `<div class="container-cart">
   <div class="cart-item">
-    <img src="${imageSrc}" width=100% />
+    <img src="shop-items/floor-pouf.jpg" width=100% />
 </div>
 <div class="cart-item-description">
 
